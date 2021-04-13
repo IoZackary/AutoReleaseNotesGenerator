@@ -1,5 +1,4 @@
 ﻿using AutoReleaseNotesGenerator.Interfaces;
-using System;
 
 namespace AutoReleaseNotesGenerator.Logic
 {

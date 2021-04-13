@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AutoReleaseNotesGenerator.Interfaces
+﻿namespace AutoReleaseNotesGenerator.Interfaces
 {
     public interface ICalc<T>
     {
