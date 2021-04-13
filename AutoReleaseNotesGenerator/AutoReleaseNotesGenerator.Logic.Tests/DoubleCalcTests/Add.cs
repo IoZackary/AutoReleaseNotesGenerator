@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using AutoReleaseNotesGenerator.Logic;
+using Xunit;
 
-namespace AutoReleaseNotesGenerator.Logic.Tests.DoubleCalcTests
+namespace DoubleCalcTests
 {
     public class Add
     {
@@ -11,12 +12,12 @@ namespace AutoReleaseNotesGenerator.Logic.Tests.DoubleCalcTests
             doubleCalc = new DoubleCalc();
         }
         [Theory]
-        [InlineData(1, 3, 4)]
-        [InlineData(52, 46, 98)]
-        [InlineData(19, 5, 24)]
-        [InlineData(16, 16, 32)]
-        [InlineData(1, 70, 71)]
-        public void Test1(int a, int b, int result)
+        [InlineData(7.8, 5.3, 13.1)]
+        [InlineData(5.2, 4.6, 9.8)]
+        [InlineData(1.9, 5, 6.9)]
+        [InlineData(1.6, 1.6, 3.2)]
+        [InlineData(8.1, 7.7, 15.8)]
+        public void Test1(double a, double b, double result)
         {
             // Arrange
 

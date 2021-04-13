@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using AutoReleaseNotesGenerator.Logic;
+using Xunit;
 
-namespace AutoReleaseNotesGenerator.Logic.Tests.DoubleCalcTests
+namespace DoubleCalcTests
 {
 
     public class Divide
@@ -16,7 +17,7 @@ namespace AutoReleaseNotesGenerator.Logic.Tests.DoubleCalcTests
         [InlineData(5.2, 4.6, 0.8846153846153845)]
         [InlineData(1.9, 5, 2.6315789473684211)]
         [InlineData(1.6, 1.6, 1)]
-        [InlineData(.1, .7, 6.999999999999999)]
+        [InlineData(16.4, 4.5, 0.27439024390243905)]
         public void Test1(double a, double b, double result)
         {
             // Arrange
