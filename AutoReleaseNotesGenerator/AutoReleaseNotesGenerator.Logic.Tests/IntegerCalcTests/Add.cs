@@ -1,7 +1,7 @@
-using System;
+using AutoReleaseNotesGenerator.Logic;
 using Xunit;
 
-namespace AutoReleaseNotesGenerator.Logic.Tests.IntegerCalcTests
+namespace IntegerCalcTests
 {
     public class Add
     {
@@ -9,7 +9,7 @@ namespace AutoReleaseNotesGenerator.Logic.Tests.IntegerCalcTests
 
         public Add()
         {
-            integerCalc = new IntegerCalc();    
+            integerCalc = new IntegerCalc();
         }
         [Theory]
         [InlineData(1, 3, 4)]
