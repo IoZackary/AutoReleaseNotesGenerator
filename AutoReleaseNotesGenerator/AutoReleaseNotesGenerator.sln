@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReleaseNotesGenerator.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReleaseNotesGenerator.Logic", "AutoReleaseNotesGenerator.Logic\AutoReleaseNotesGenerator.Logic.csproj", "{6F222EE8-5430-4FAE-AFC9-BFF4DF9C98BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoReleaseNotesGenerator.Logic.Tests", "AutoReleaseNotesGenerator.Logic.Tests\AutoReleaseNotesGenerator.Logic.Tests.csproj", "{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{6F222EE8-5430-4FAE-AFC9-BFF4DF9C98BF}.Release|x64.Build.0 = Release|Any CPU
 		{6F222EE8-5430-4FAE-AFC9-BFF4DF9C98BF}.Release|x86.ActiveCfg = Release|Any CPU
 		{6F222EE8-5430-4FAE-AFC9-BFF4DF9C98BF}.Release|x86.Build.0 = Release|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Debug|x64.Build.0 = Debug|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Debug|x86.Build.0 = Debug|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Release|x64.ActiveCfg = Release|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Release|x64.Build.0 = Release|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Release|x86.ActiveCfg = Release|Any CPU
+		{BF1BD5DA-506A-4FCF-A9C9-B2C6BC643994}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
