@@ -10,22 +10,15 @@ namespace AutoReleaseNotesGenerator
     {
         static void Main(string[] args)
         {
-            //setup our DI
-            var serviceProvider = new ServiceCollection()
-                .AddLogging()
-                .AddSingleton<ICalc<int>, IntegerCalc>()
-                .BuildServiceProvider();
+            // Setup D.I.
+            IServiceProvider serviceProvider = ConfigureIoC();
 
-            //configure console logging
-            serviceProvider
-                .GetService<ILoggerFactory>()
-                .AddConsole(LogLevel.Debug);
+            // Configure Console Logging
+            ConfigureLogging(serviceProvider);
+            ILogger<Program> logger = CreateLoggingInstance(serviceProvider);
 
-            var logger = serviceProvider.GetService<ILoggerFactory>()
-                .CreateLogger<Program>();
             logger.LogDebug("Starting application");
 
-            //do the actual work here
             var integer_calculator = serviceProvider.GetService<ICalc<int>>();
             var int_a = 5;
             var int_b = 7;
@@ -35,6 +28,27 @@ namespace AutoReleaseNotesGenerator
             Console.WriteLine($"Divide {int_a} and {int_b} : {integer_calculator.Divide(int_a, int_b)}");
 
             logger.LogDebug("All done!");
+        }
+
+        private static ILogger<Program> CreateLoggingInstance(IServiceProvider serviceProvider)
+        {
+            return serviceProvider.GetService<ILoggerFactory>()
+                            .CreateLogger<Program>();
+        }
+
+        private static void ConfigureLogging(IServiceProvider serviceProvider)
+        {
+            serviceProvider
+                            .GetService<ILoggerFactory>()
+                            .AddConsole(LogLevel.Debug);
+        }
+
+        private static IServiceProvider ConfigureIoC()
+        {
+            return new ServiceCollection()
+                .AddLogging()
+                .AddSingleton<ICalc<int>, IntegerCalc>()
+                .BuildServiceProvider();
         }
     }
 }
