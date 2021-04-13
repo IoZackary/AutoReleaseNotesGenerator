@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoReleaseNotesGenerator.Logic;
 using Xunit;
 
-namespace AutoReleaseNotesGenerator.Logic.Tests.IntegerCalcTests
+namespace IntegerCalcTests
 {
     public class Subtract
     {
