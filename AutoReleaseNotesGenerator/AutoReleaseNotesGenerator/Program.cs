@@ -19,6 +19,19 @@ namespace AutoReleaseNotesGenerator
 
             logger.LogDebug("Starting application");
 
+            logger.LogDebug("Starting Integer Calculator");
+            RunIntegerCalculator(serviceProvider);
+            logger.LogDebug("Integer Calculator Complete");
+
+            logger.LogDebug("Starting Double Calculator");
+            RunDoubleCalculator(serviceProvider);
+            logger.LogDebug("Double Calculator Complete");
+
+            logger.LogDebug("All done!");
+        }
+
+        private static void RunIntegerCalculator(IServiceProvider serviceProvider)
+        {
             var integer_calculator = serviceProvider.GetService<ICalc<int>>();
             var int_a = 5;
             var int_b = 7;
@@ -26,8 +39,17 @@ namespace AutoReleaseNotesGenerator
             Console.WriteLine($"Subtract {int_a} and {int_b} : {integer_calculator.Subtract(int_a, int_b)}");
             Console.WriteLine($"Multiple {int_a} and {int_b} : {integer_calculator.Multiply(int_a, int_b)}");
             Console.WriteLine($"Divide {int_a} and {int_b} : {integer_calculator.Divide(int_a, int_b)}");
+        }
 
-            logger.LogDebug("All done!");
+        private static void RunDoubleCalculator(IServiceProvider serviceProvider)
+        {
+            var double_calculator = serviceProvider.GetService<ICalc<double>>();
+            var int_a = 5.3;
+            var int_b = 7.8;
+            Console.WriteLine($"Add {int_a} and {int_b} : {double_calculator.Add(int_a, int_b)}");
+            Console.WriteLine($"Subtract {int_a} and {int_b} : {double_calculator.Subtract(int_a, int_b)}");
+            Console.WriteLine($"Multiple {int_a} and {int_b} : {double_calculator.Multiply(int_a, int_b)}");
+            Console.WriteLine($"Divide {int_a} and {int_b} : {double_calculator.Divide(int_a, int_b)}");
         }
 
         private static ILogger<Program> CreateLoggingInstance(IServiceProvider serviceProvider)
@@ -48,6 +70,7 @@ namespace AutoReleaseNotesGenerator
             return new ServiceCollection()
                 .AddLogging()
                 .AddSingleton<ICalc<int>, IntegerCalc>()
+                .AddSingleton<ICalc<double>, DoubleCalc>()
                 .BuildServiceProvider();
         }
     }

@@ -2,24 +2,24 @@
 
 namespace AutoReleaseNotesGenerator.Logic
 {
-    public class IntegerCalc : ICalc<int>
+    public class DoubleCalc : ICalc<double>
     {
-        public int Add(int a, int b)
+        public double Add(double a, double b)
         {
             return a + b;
         }
 
-        public int Divide(int a, int b)
+        public double Divide(double a, double b)
         {
             return b / a;
         }
 
-        public int Multiply(int a, int b)
+        public double Multiply(double a, double b)
         {
             return a * b;
         }
 
-        public int Subtract(int a, int b)
+        public double Subtract(double a, double b)
         {
             return a - b;
         }
