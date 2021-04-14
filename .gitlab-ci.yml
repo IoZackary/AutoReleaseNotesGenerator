@@ -101,7 +101,7 @@ build:
   # where it is located (e.g. 'dotnet build ./src/ConsoleApp').
   # Only one project path can be passed as a parameter to 'dotnet build' command.
   script:
-    - 'dir ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator && dotnet build ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.csproj'
+    - 'dotnet build ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.csproj'
 
 tests:
   stage: test
@@ -115,4 +115,4 @@ tests:
   # You may want to define separate testing jobs for different types of testing
   # (e.g. integration tests, unit tests etc).
   script:
-    - 'dir ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator && dotnet test ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.Logic.Tests/AutoReleaseNotesGenerator.Logic.Tests.csproj'
+    - 'dotnet test ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.Logic.Tests/AutoReleaseNotesGenerator.Logic.Tests.csproj'
