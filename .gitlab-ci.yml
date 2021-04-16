@@ -32,6 +32,7 @@ variables:
 stages:
   - build
   - test
+  - changelog
 
 # ### Define global cache rule
 #
@@ -116,3 +117,13 @@ tests:
   # (e.g. integration tests, unit tests etc).
   script:
     - 'dotnet test ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.Logic.Tests/AutoReleaseNotesGenerator.Logic.Tests.csproj'
+
+changelog:
+  image: docker:git
+  script:
+    - git log --pretty=format:'At %ci, %cN committed %h - %s' --decorate --graph > log.log \
+      npm install -g git-release-notes \
+      git-release-notes f119b30..07c3c19 markdown \
+      git log --oneline --graph
+  artifacts:
+    paths: [log.log]
