@@ -31,7 +31,7 @@ variables:
 # Initially, the project will be built and then tested.
 stages:
   - build
-  - test
+  - changelog
 
 # ### Define global cache rule
 #
@@ -104,7 +104,7 @@ build:
     - 'dotnet build ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.csproj'
 
 tests:
-  stage: test
+  stage: build
   image: mcr.microsoft.com/dotnet/sdk:5.0
   # ### Run the tests
   #
@@ -116,3 +116,23 @@ tests:
   # (e.g. integration tests, unit tests etc).
   script:
     - 'dotnet test ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.Logic.Tests/AutoReleaseNotesGenerator.Logic.Tests.csproj'
+
+changelog:
+  stage: changelog
+  image: docker:git
+  script:
+    - |
+      git log --pretty=format:'At %ci, %cN committed %h - %s' --decorate --graph > log.log
+      git log --oneline --graph
+  artifacts:
+    paths: [log.log]
+
+changelog1:
+  stage: changelog
+  image: node:latest
+  script:
+    - |
+      npm install -g git-release-notes
+      git-release-notes f119b30..Release.1.0 html-bootstrap > html-bootstrap.html
+  artifacts:
+    paths: [html-bootstrap.html]
