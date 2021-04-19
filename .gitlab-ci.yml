@@ -131,4 +131,4 @@ changelog1:
   image: node:latest
   script:
     - npm install -g git-release-notes && \
-      git-release-notes f119b30..07c3c19 markdown
+      git-release-notes f119b30..Release.1.0 markdown
