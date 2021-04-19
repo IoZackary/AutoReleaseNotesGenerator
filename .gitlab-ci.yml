@@ -119,11 +119,17 @@ tests:
     - 'dotnet test ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.Logic.Tests/AutoReleaseNotesGenerator.Logic.Tests.csproj'
 
 changelog:
+  stage: changelog
   image: docker:git
   script:
     - git log --pretty=format:'At %ci, %cN committed %h - %s' --decorate --graph > log.log \
-      npm install -g git-release-notes \
-      git-release-notes f119b30..07c3c19 markdown \
       git log --oneline --graph
   artifacts:
     paths: [log.log]
+
+changelog1:
+  stage: changelog
+  image: node:latest
+  script:
+    - npm install -g git-release-notes \
+      git-release-notes f119b30..07c3c19 markdown
