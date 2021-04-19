@@ -133,4 +133,6 @@ changelog1:
   script:
     - |
       npm install -g git-release-notes
-      git-release-notes f119b30..Release.1.0 markdown
+      git-release-notes f119b30..Release.1.0 html-bootstrap > html-bootstrap.html
+  artifacts:
+    paths: [html-bootstrap.html]
