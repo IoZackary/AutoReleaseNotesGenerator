@@ -31,7 +31,6 @@ variables:
 # Initially, the project will be built and then tested.
 stages:
   - build
-  - test
   - changelog
 
 # ### Define global cache rule
@@ -105,7 +104,7 @@ build:
     - 'dotnet build ./AutoReleaseNotesGenerator/AutoReleaseNotesGenerator/AutoReleaseNotesGenerator.csproj'
 
 tests:
-  stage: test
+  stage: build
   image: mcr.microsoft.com/dotnet/sdk:5.0
   # ### Run the tests
   #
